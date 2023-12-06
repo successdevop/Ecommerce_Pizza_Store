@@ -10,8 +10,12 @@ function AppLayout() {
 
   return (
     <div className="layout">
+      {isLoading && <LoadingSpinner />}
+
       <Header />
-      <main>{isLoading ? <LoadingSpinner /> : <Outlet />}</main>
+      <main>
+        <Outlet />
+      </main>
       <CartOverview />
     </div>
   );

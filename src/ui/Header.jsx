@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import SearchOrder from "../features/order/SearchOrder";
 
 function Header() {
   return (
     <header>
       <Link to="/">Pizza Store Co.</Link>
-      <h3>Success Dev</h3>
+      <SearchOrder />
     </header>
   );
 }

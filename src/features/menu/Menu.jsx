@@ -1,5 +1,6 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { getMenu } from "../../services/apiRestaurant";
+import MenuItem from "./MenuItem";
 
 function Menu() {
   const menu = useLoaderData();
@@ -9,12 +10,7 @@ function Menu() {
       <h1>Menu</h1>
       <ul>
         {menu.map((pizza) => (
-          <li key={pizza.id}>
-            <Link>
-              <img src={pizza.imageUrl} alt={pizza.name} />
-              <h2>{pizza.name}</h2>
-            </Link>
-          </li>
+          <MenuItem key={pizza.id} pizza={pizza} />
         ))}
       </ul>
     </div>

@@ -41,6 +41,7 @@ function Button({ children, disabled, to, type, onclick }) {
     </button>
   );
 }
+
 Button.propTypes = {
   onclick: PropTypes.func,
   to: PropTypes.string,

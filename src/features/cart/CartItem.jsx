@@ -3,6 +3,7 @@ import Button from "../../ui/Button";
 import { formatCurrency } from "../../utilities/helpers";
 import PropTypes from "prop-types";
 import { getCart, removeItemFromCart } from "./CartSlice";
+import UpdateCartItemQuantities from "./UpdateCartItemQuantities";
 
 function CartItem({ item }) {
   const cart = useSelector(getCart);
@@ -22,6 +23,7 @@ function CartItem({ item }) {
       </p>
       <div className="flex items-center justify-between sm:gap-12">
         <p className="text-sm font-bold">{formatCurrency(totalPrice)}</p>
+        <UpdateCartItemQuantities pizzaId={pizzaId} />
         <Button onclick={handleDeleteItemFromCart} type="small">
           Delete
         </Button>

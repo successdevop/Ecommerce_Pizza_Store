@@ -1,9 +1,12 @@
 import PropTypes from "prop-types";
 import { formatCurrency } from "../../utilities/helpers";
 import Button from "../../ui/Button";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../cart/CartSlice";
 
 function MenuItem({ pizza }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+  const dispatch = useDispatch();
 
   return (
     <li className="flex gap-4 py-2">
@@ -25,7 +28,9 @@ function MenuItem({ pizza }) {
               Sold out
             </p>
           )}
-          <Button type="small">Add to cart</Button>
+          <Button type="small" onclick={() => dispatch(addItemToCart(id))}>
+            Add to cart
+          </Button>
         </div>
       </div>
     </li>

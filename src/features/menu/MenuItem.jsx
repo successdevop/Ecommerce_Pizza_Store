@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import { formatCurrency } from "../../utilities/helpers";
 import Button from "../../ui/Button";
-import { useDispatch } from "react-redux";
-import { addItemToCart } from "../cart/CartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToCart, getCart } from "../cart/CartSlice";
 
 function MenuItem({ pizza }) {
+  const cart = useSelector(getCart);
+
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
   const dispatch = useDispatch();
 
@@ -16,6 +18,8 @@ function MenuItem({ pizza }) {
       unitPrice,
       totalPrice: unitPrice * 1,
     };
+
+    if (cart.find((item) => item.pizzaId === newItem.pizzaId)) return;
 
     dispatch(addItemToCart(newItem));
   };

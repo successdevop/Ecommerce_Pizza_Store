@@ -1,5 +1,4 @@
 // Test ID: IIDSAT
-
 import { useFetcher, useLoaderData } from "react-router-dom";
 import { getOrder } from "../../services/apiRestaurant";
 import {
@@ -10,6 +9,8 @@ import {
 import OrderItem from "./OrderItem";
 import { useEffect } from "react";
 import UpdateOrder from "./UpdateOrder";
+
+import Button from "../../ui/Button";
 
 function Order() {
   const order = useLoaderData();
@@ -90,7 +91,12 @@ function Order() {
         </p>
       </div>
 
-      {!priority && <UpdateOrder order={order} />}
+      <div>
+        <Button type={"small"} to="/">
+          Done
+        </Button>
+        {!priority && <UpdateOrder order={order} />}
+      </div>
     </div>
   );
 }

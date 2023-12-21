@@ -4,8 +4,6 @@ import { formatCurrency } from "../../utilities/helpers";
 function OrderItem({ item, isLoadingIngredients, ingredients }) {
   const { quantity, name, totalPrice } = item;
 
-  console.log(ingredients);
-
   return (
     <li className="space-y-1 py-3">
       <div className="sm:flex sm:items-center sm:justify-between sm:gap-4 sm:text-sm">

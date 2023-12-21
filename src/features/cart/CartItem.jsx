@@ -1,18 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Button from "../../ui/Button";
 import { formatCurrency } from "../../utilities/helpers";
 import PropTypes from "prop-types";
-import { getCart, removeItemFromCart } from "./CartSlice";
+import { removeItemFromCart } from "./CartSlice";
 import UpdateCartItemQuantities from "./UpdateCartItemQuantities";
 
 function CartItem({ item }) {
-  const cart = useSelector(getCart);
   const dispatch = useDispatch();
 
   const { pizzaId, name, quantity, totalPrice } = item;
 
   const handleDeleteItemFromCart = () => {
-    // const item = cart.find((item) => item.pizzaId === pizzaId);
     dispatch(removeItemFromCart(pizzaId));
   };
 
@@ -23,7 +21,7 @@ function CartItem({ item }) {
       </p>
       <div className="flex items-center justify-between sm:gap-12">
         <p className="text-sm font-bold">{formatCurrency(totalPrice)}</p>
-        <UpdateCartItemQuantities pizzaId={pizzaId} />
+        <UpdateCartItemQuantities pizzaId={pizzaId} quantity={quantity} />
         <Button onclick={handleDeleteItemFromCart} type="small">
           Delete
         </Button>

@@ -3,7 +3,7 @@ import Button from "../../ui/Button";
 import { decreaseItemQtyInCart, increaseItemQtyInCart } from "./CartSlice";
 import PropTypes from "prop-types";
 
-function UpdateCartItemQuantities({ pizzaId }) {
+function UpdateCartItemQuantities({ pizzaId, quantity }) {
   const dispatch = useDispatch();
   return (
     <div className="flex items-center gap-1 md:gap-3">
@@ -13,6 +13,7 @@ function UpdateCartItemQuantities({ pizzaId }) {
       >
         -
       </Button>
+      <span className="p-1 text-sm">{quantity}</span>
       <Button
         onclick={() => dispatch(increaseItemQtyInCart(pizzaId))}
         type="round"
@@ -24,6 +25,7 @@ function UpdateCartItemQuantities({ pizzaId }) {
 }
 
 UpdateCartItemQuantities.propTypes = {
-  pizzaId: PropTypes.string,
+  quantity: PropTypes.number,
+  pizzaId: PropTypes.number,
 };
 export default UpdateCartItemQuantities;

@@ -91,7 +91,7 @@ function Order() {
         </p>
       </div>
 
-      <div>
+      <div className="flex items-center justify-between">
         <Button type={"small"} to="/">
           Done
         </Button>
